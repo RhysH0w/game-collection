@@ -3,14 +3,15 @@ import os
 import pygame
 from static import *
 from Button import *
+
 # Initialise the engines
 pygame.init()
-print(word)
-clock = pygame.time.Clock()
+
+
 
 def Home():  # This is the home page of my pong game
-  click = False
-  while True:
+    click = False
+    while True:
 
         mx, my = pygame.mouse.get_pos()
         mouse = (mx, my)
@@ -27,13 +28,12 @@ def Home():  # This is the home page of my pong game
         if PongButton.collidepoint(mouse):
             PongButtonText.write(gameDisplay, lightred)
             if click:
-              Pong()
+                Pong()
 
         if SpaceButton.collidepoint(mouse):
             SpaceButtonText.write(gameDisplay, lightred)
             if click:
-              Space()
-      
+                Space()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -44,7 +44,6 @@ def Home():  # This is the home page of my pong game
                     click = True
 
         pygame.display.update()
-        clock.tick(60)
 
 
 def Pong():
@@ -59,12 +58,13 @@ def Pong():
                     pygame.quit()
 
         gameDisplay.fill(black)
-        pygame.draw.rect(gameDisplay, blue, [100,100,100,100])
+        pygame.draw.rect(gameDisplay, blue, [100, 100, 100, 100])
         pygame.display.update()
 
 
 gameDisplay = pygame.display.set_mode(ScreenSize)
 pygame.display.set_caption("Pong")
+
 
 def Space():
     click = False
@@ -73,5 +73,12 @@ def Space():
             if event.type == pygame.QUIT:
                 pygame.quit()
 
-            i
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+
+        gameDisplay.fill(black)
+        pygame.display.update()
+
+
 Home()
