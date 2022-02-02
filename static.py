@@ -12,5 +12,4 @@ black = (0, 0, 0)
 red = (255, 0, 0)
 blue = (0,255,0)
 lightred = (100,0,0)
-word = os.environ['character']
 font = pygame.font.SysFont('courier', 35, True, False)
